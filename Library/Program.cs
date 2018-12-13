@@ -7,15 +7,17 @@ using Microsoft.AspNetCore.Hosting;
 
 namespace Library
 {
+    // Entry point for the application
     public class Program
     {
         public static void Main(string[] args)
         {
+            // Set up the web host that we want to run when the app starts
             var host = new WebHostBuilder()
-                .UseKestrel()
+                .UseKestrel() // Lightweight server
                 .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseIISIntegration()
-                .UseStartup<Startup>()
+                .UseIISIntegration() // Full fledge server
+                .UseStartup<Startup>() // Startup class (.cs) where we set up configurations and middlewares for the application 
                 .UseApplicationInsights()
                 .Build();
 
