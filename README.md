@@ -35,4 +35,5 @@
 - Step 2
 	- update-database
 
-
+## Table-Per-Hierarchy (TPH)
+- Inheritance Strategy: One table for all entity types in an inheritance hierarchy.
