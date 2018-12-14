@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using LibraryData;
 using LibraryData.Models;
@@ -9,7 +8,7 @@ namespace LibraryServices
 {
     public class LibraryAssetService : ILibraryAsset
     {
-        private LibraryContext _context;
+        private readonly LibraryContext _context;
 
         public LibraryAssetService(LibraryContext context)
         {
@@ -38,22 +37,33 @@ namespace LibraryServices
 
         public string GetDeweyIndex(int id)
         {
-            throw new NotImplementedException();
+            // Discriminator: Book, Video
+            if (_context.Books.Any(book => book.Id == id))
+            {
+                return _context.Books.FirstOrDefault(book => book.Id == id)?.DeweyIndex;
+            }
+            return "";
         }
 
         public string GetType(int id)
         {
-            throw new NotImplementedException();
+            var book = _context.LibraryAssets.OfType<Book>().Where(b => b.Id == id);
+            return book.Any() ? "Book" : "Video";
         }
 
         public string GetTitle(int id)
         {
-            throw new NotImplementedException();
+            return _context.LibraryAssets.FirstOrDefault(a => a.Id == id)?.Title;
         }
 
         public string GetIsbn(int id)
         {
-            throw new NotImplementedException();
+            if (_context.Books.Any(book => book.Id == id))
+            {
+                return _context.Books.FirstOrDefault(book => book.Id == id)?.ISBN;
+            }
+
+            return "";
         }
 
         public LibraryBranch GetCurrentLocation(int id)
@@ -63,7 +73,14 @@ namespace LibraryServices
 
         public string GetAuthorOrDirector(int id)
         {
-            throw new NotImplementedException();
+            var isBook = _context.LibraryAssets.OfType<Book>().Any(book => book.Id == id);
+
+            //var isVideo = _context.LibraryAssets.OfType<Video>().Any(video => video.Id == id);
+
+            return isBook
+                ? _context.Books.FirstOrDefault(book => book.Id == id)?.Author
+                : _context.Videos.FirstOrDefault(video => video.Id == id)?.Director
+                ?? "Unknown";
         }
     }
 }

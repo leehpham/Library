@@ -5,4 +5,8 @@
     <RootNamespace>LibraryServices</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LibraryData\LibraryData.csproj" />
+  </ItemGroup>
+
 </Project>
