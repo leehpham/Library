@@ -37,7 +37,10 @@ namespace Library
             // Add framework services.
             services.AddMvc();
             services.AddSingleton(Configuration);
+            // Library Asset Service
             services.AddScoped<ILibraryAsset, LibraryAssetService>();
+            // Checkout Service
+            services.AddScoped<ICheckout, CheckoutService>();
 
             // Database connection
             services.AddDbContext<LibraryContext>(options 
