@@ -31,7 +31,7 @@
 ## Database Migrations
 - Helps us keep changes to our database schema organized and reversible.
 - Step 1
-	- add-migration "Initial Migration"
+	- add-migration "InitialMigration"
 - Step 2
 	- update-database
 

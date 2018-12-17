@@ -16,6 +16,6 @@ namespace LibraryData.Models
         // Use the virtual keyword when you want to lazy load that property's data. Lazy loading loads a collection 
         // from the database the first time it is accessed.
         public virtual LibraryCard LibraryCard { get; set; }
-        public virtual LibraryBranch LibraryBranch { get; set; }
+        public virtual LibraryBranch HomeLibraryBranch { get; set; }
     }
 }

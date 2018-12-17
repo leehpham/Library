@@ -8,9 +8,10 @@ using LibraryData;
 namespace LibraryData.Migrations
 {
     [DbContext(typeof(LibraryContext))]
-    partial class LibraryContextModelSnapshot : ModelSnapshot
+    [Migration("20181217160326_ChangedLibraryBranchToHomeLibraryBranchInPatron")]
+    partial class ChangedLibraryBranchToHomeLibraryBranchInPatron
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
