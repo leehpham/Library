@@ -77,6 +77,7 @@ namespace LibraryServices
             var now = DateTime.Now;
 
             var asset = _context.LibraryAssets
+                .Include(a => a.Status)
                 .FirstOrDefault(a => a.Id == assetId);
 
             var card = _context.LibraryCards
@@ -232,7 +233,7 @@ namespace LibraryServices
             return isCheckedOut;
         }
 
-        public void CheckInItem(int assetId, int libraryCardId)
+        public void CheckInItem(int assetId)
         {
             var now = DateTime.Now;
 
@@ -255,6 +256,7 @@ namespace LibraryServices
             if (currentHolds.Any())
             {
                 CheckoutToEarliestHold(assetId, currentHolds);
+                return;
             }
 
             // Otherwise, update the item status to available
