@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    /*padding-top: 50px;*/
     padding-bottom: 20px;
 }
 
@@ -106,20 +106,20 @@ textarea {
 }
 
 #catalog {
-    background: url('/images/books.jpg') bottom right 15% no-repeat #555;
+    background: url('/images/books.jpeg') bottom right 15% no-repeat #555;
 }
 
 #catalogIndexTable {
     font-size: 1.3em;
 }
 
-    #catalogIndexTable td {
-        vertical-align: middle;
-    }
+#catalogIndexTable td {
+    vertical-align: middle;
+}
 
-    #catalogIndexTable tr:hover {
-        background-color: #eee;
-    }
+#catalogIndexTable tr:hover {
+    background-color: #eee;
+}
 
 #patrons {
     background: url('/images/patron.jpeg') bottom left 15% no-repeat #555;
