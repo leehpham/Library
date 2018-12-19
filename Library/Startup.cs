@@ -41,6 +41,8 @@ namespace Library
             services.AddScoped<ILibraryAsset, LibraryAssetService>();
             // Checkout Service
             services.AddScoped<ICheckout, CheckoutService>();
+            // Patron Service
+            services.AddScoped<IPatron, PatronService>();
 
             // Database connection
             services.AddDbContext<LibraryContext>(options 

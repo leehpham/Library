@@ -23,6 +23,10 @@
 - Microsoft.EntityFrameworkCore.Tools 1.1.1
 	- Installed to LibraryData
 	- This allows us to use the Package Manager console to do database migration.
+- Front-end:
+	- Material Design Lite
+	- Bootstrap 3.3.7
+	- Google Font: Coda
 
 ## Project Structure
 - LibraryData: (Class Library) 
