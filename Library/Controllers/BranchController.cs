@@ -53,6 +53,8 @@ namespace Library.Controllers
                 ImageUrl = branch.ImageUrl,
                 HoursOpen = _branch.GetBranchHours(id)
             };
+
+            return View(model);
         }
     }
 }

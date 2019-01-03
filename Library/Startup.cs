@@ -43,6 +43,8 @@ namespace Library
             services.AddScoped<ICheckout, CheckoutService>();
             // Patron Service
             services.AddScoped<IPatron, PatronService>();
+            // Branch Service
+            services.AddScoped<ILibraryBranch, LibraryBranchService>();
 
             // Database connection
             services.AddDbContext<LibraryContext>(options 
